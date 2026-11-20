@@ -1,18 +1,9 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+// Importando tailwind para garantir a renderização em todas as páginas 
+import '../../global.css'; 
+import { Stack } from 'expo-router';
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
-
-SplashScreen.preventAutoHideAsync();
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
-  );
+// Usando o stack para facilitar o desenvolvimento da página de adm futuramente
+export default function RootLayout() { 
+  // Escondendo o header padrão com screenOptions
+  return <Stack screenOptions={{ headerShown: false }} />; 
 }
